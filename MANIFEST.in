@@ -1,0 +1,8 @@
+include LICENSE README.md pyproject.toml
+recursive-include src/hidock *.py
+recursive-include tests *.py
+recursive-include docs *.md
+prune recordings
+prune .models
+prune .venv
+global-exclude __pycache__ *.py[cod] *.part

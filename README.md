@@ -1,4 +1,4 @@
-# hidock-usb
+# hidock-python
 
 A Python library and command line tool to list and download recordings directly
 from a HiDock P1 over USB. No HiNotes account or cloud service is needed.
@@ -19,8 +19,12 @@ brew install libusb
 
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e .
+python -m pip install hidock-python
 ```
+
+The PyPI distribution is `hidock-python`; Python imports remain `hidock` and
+the command line executable is `hidock`. To work from a source checkout, use
+`python -m pip install -e .` instead.
 
 On Debian/Ubuntu, install `libusb-1.0-0` and grant your user access to the P1
 with an appropriate udev rule. Windows requires libusb and a compatible USB
@@ -244,8 +248,10 @@ updates, file renaming, and file uploads are not implemented.
 Install the optional transcription dependencies:
 
 ```sh
-python -m pip install -e '.[transcription]'
+python -m pip install 'hidock-python[transcription]'
 ```
+
+From a source checkout, use `python -m pip install -e '.[transcription]'`.
 
 Add `--transcribe` to either download command to save a UTF-8 `.txt` transcript
 beside each audio file (`sample.hda` produces `sample.txt`):
@@ -334,6 +340,10 @@ audio bytes, multi-frame file lists and downloads, malformed responses,
 timeouts, atomic publication, and overwrite protection without hardware.
 
 ## Protocol references
+
+MIT licensed; see [LICENSE](https://github.com/thekb/hidock-python/blob/main/LICENSE).
+Maintainers can follow the [release guide](https://github.com/thekb/hidock-python/blob/main/docs/releasing.md)
+to build and publish packages.
 
 The implementation was independently written using the public
 [hidock-mcp protocol implementation](https://github.com/kms254/hidock-mcp/blob/main/src/protocol.ts)

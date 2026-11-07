@@ -1,14 +1,36 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "hidock-usb"
+name = "hidock-python"
 version = "0.1.0"
-description = "Local USB access to HiDock P1 recordings"
+description = "Python library and CLI for HiDock P1 recordings and device management"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["pyusb>=1.2,<2"]
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Sarat Chandra K B"}]
+keywords = ["hidock", "usb", "voice-recorder", "audio", "transcription"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Sound/Audio",
+]
+
+[project.urls]
+Homepage = "https://github.com/thekb/hidock-python"
+Documentation = "https://github.com/thekb/hidock-python#readme"
+Repository = "https://github.com/thekb/hidock-python"
+Issues = "https://github.com/thekb/hidock-python/issues"
 
 [project.optional-dependencies]
 # PyAV 19 removed metadata_errors, which faster-whisper 1.x still passes.
@@ -19,3 +41,4 @@ hidock = "hidock.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["hidock*"]

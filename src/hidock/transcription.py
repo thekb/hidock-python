@@ -31,7 +31,7 @@ class WhisperTranscriber:
             from faster_whisper import WhisperModel
         except ImportError as exc:
             raise TranscriptionError(
-                'Install transcription support with: python -m pip install -e ".[transcription]"'
+                'Install transcription support with: python -m pip install "hidock-python[transcription]"'
             ) from exc
         self._factory = WhisperModel
         self._model = None
